@@ -13,7 +13,7 @@ export default props => {
                 style={style.fundo}    
                     >
             
-            <Text style={style.text}>GF Grafica</Text>
+            <Text style={style.text}>GF Gráficas</Text>
 
             <Pressable style={style.button} onPress={()=> props.navigation.navigate('Home')}>
                 <Text style={style.textBtn}>ENTRAR</Text>

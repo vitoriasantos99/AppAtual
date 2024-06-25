@@ -1,15 +1,36 @@
 import React from "react";
 import { useState } from "react";
-import { SafeAreaView, Text, Image, StyleSheet, View, TextInput, Button, Pressable, Alert, PermissionsAndroid, ImageBackground } from "react-native";
-import { Card } from '@rneui/themed';
+import { SafeAreaView, 
+    Text, 
+    Image, 
+    StyleSheet, 
+    View, 
+    TextInput, 
+    Button, 
+    Pressable, 
+    Alert, 
+    ImageBackground } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import { ListItem, Avatar, ThemeProvider } from '@rneui/themed';
+import { ListItem, Avatar, ThemeProvider, Card } from '@rneui/themed';
 
 
 
 export default props => {
     const [text, setText] = useState('');
     const [search, setSearch] = useState('');
+
+    const [num, setNum] = useState(0);
+
+
+    function aumentar() {
+        setNum(num + 1);
+        console.log(num);
+    }
+
+    function diminuir() {
+        setNum(num - 1);
+        console.log(num);
+    }
 
     return (
         <View style={{ flex: 1 }}>
@@ -60,10 +81,22 @@ export default props => {
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Pressable style={botao.quanti} onPress={() => props.navigation.navigate('')}>
-                            <Text style={texto.quanti}>Quantidade</Text>
-                        </Pressable>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('')}>
+                        <View style={botao.quanti}>
+                            <Pressable>
+                                <Image
+                                    source={require('../image/menos.png')}
+                                    style={imagem.menos}
+                                />
+                            </Pressable>
+                            <Text style={texto.quantidade}>0</Text>
+                            <Pressable>
+                                <Image
+                                    source={require('../image/mais.png')}
+                                    style={imagem.mais}
+                                />
+                            </Pressable>
+                        </View>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -73,7 +106,7 @@ export default props => {
                
                
 
-                <View style={{ flexDirection: 'row' }}>
+                {/* <View style={{ flexDirection: 'row' }}>
                     <Image
                         source={require('../image/news.png')}
                         style={style.news}
@@ -99,17 +132,17 @@ export default props => {
                         onPress={() => { Alert.alert('') }}>
                         <Text style={style.textBtn}>Inscreva-se</Text>
                     </Pressable>
-                </View>
+                </View> */}
 
 
 
 
-                <Pressable style={style.buttonTodos} onPress={() => props.navigation.navigate('')}>
+                <Pressable style={style.buttonTodos} onPress={() => props.navigation.navigate('Compra')}>
                     <Text style={style.mais}>Ver todos</Text>
                 </Pressable>
 
 
-                <View style={{ flexDirection: "row" }}>
+                {/* <View style={{ flexDirection: "row" }}>
                     <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('')}>
                         <View style={style.rodapeTxt1}><Text>Produtos</Text></View>
                     </Pressable>
@@ -134,7 +167,7 @@ export default props => {
                             style={imagem.insta}
                         />
                     </View>
-                </View>
+                </View> */}
 
 
             </ImageBackground>
@@ -219,8 +252,8 @@ const style = StyleSheet.create(
             width: 150,
             height: 90,
             margin: 15,
-            marginLeft: 25,
-            marginTop: 20,
+            marginLeft: 15,
+            marginTop: 30,
         },
         banner: {
             width: 50,
@@ -289,6 +322,10 @@ const style = StyleSheet.create(
             width: 320,
             height: 50,
         },
+        quantidade:{
+            borderRadius: 8,
+            height: 50,
+        }
     }
 )
 
@@ -314,7 +351,19 @@ const imagem = StyleSheet.create(
         },
         texto: {
             color: '#000'
-        }
+        },
+        mais:{
+            width: 20,
+            height: 'auto',
+            marginRight: 100,
+            justifyContent: 'center',
+        },
+        menos:{
+            width: 20,
+            height: 20,
+            marginTop: 10,
+            marginLeft: 10,
+        },
     }
 )
 
@@ -329,12 +378,12 @@ const botao = StyleSheet.create(
             borderRadius: 30,
         },
         quanti: {
+            backgroundColor: 'pink',
+            borderRadius: 30,
             width: 170,
             height: 40,
-            backgroundColor: "#1E74C0",
             marginLeft: 20,
             marginTop: 7,
-            borderRadius: 30,
         },
     }
 )
@@ -370,6 +419,11 @@ const texto = StyleSheet.create(
             color: '#000',
             marginLeft: 75
         },
+        quantidade:{
+        //    marginLeft: 100,
+           color: 'black',
+           textAlign: 'center',
+        }
     }
 )
 

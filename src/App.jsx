@@ -9,6 +9,11 @@ import Login from "./views/Login";
 import Register from "./views/Register";
 import Senha from "./views/Senha";
 import Compra from "./views/Compra";
+import Pagamento from "./views/Pagamento";
+import Pix from "./views/Pix";
+import Contacts from "./views/Contacts";
+import Avaliar from "./views/Avaliar";
+import Equipe from "./views/Equipe";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,12 +22,12 @@ export default props =>{
         <SafeAreaView style={{flex: 1}}>
            <NavigationContainer>
                 <Stack.Navigator>
-                    <Stack.Screen name="Inicio" component={Inicio} options={{
+                    {/* <Stack.Screen name="Inicio" component={Inicio} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
-                    <Stack.Screen name="Home" component={Home} options={{
+                    }}/> */}
+                    {/* <Stack.Screen name="Home" component={Home} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
@@ -43,6 +48,31 @@ export default props =>{
                         headerShown: false,
                     }}/>
                     <Stack.Screen name="Compra" component={Compra} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Pagamento" component={Pagamento} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Pix" component={Pix} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Contato" component={Contacts} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Avaliar" component={Avaliar} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    <Stack.Screen name="Equipe" component={Equipe} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,

@@ -101,7 +101,7 @@ export default props =>{
             </View>
 
             <View style={{flexDirection: 'row'}}>
-                <Pressable style={botao.carrinho}>
+                <Pressable style={botao.carrinho} >
                     <Text style={texto.carrinho}>Carrinho</Text>
                 </Pressable>
                 <Pressable style={botao.finalizar}>
