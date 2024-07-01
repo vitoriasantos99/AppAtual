@@ -19,6 +19,10 @@ import Boleto from "./views/Boleto";
 import Carrinho from "./views/Carrinho";
 import Cadastro from "./views/Cadastro";
 import CarrinhoCompras from "./views/teste";
+import testeAdd from "./views/telaCarrinho"
+import testeView from "./views/telaAdd"
+import TelaCarrinho from "./views/telaCarrinho";
+import MeuModal from "./views/testeModal";
 
 const Stack = createNativeStackNavigator();
 
@@ -62,11 +66,11 @@ export default props =>{
                         headerTransparent: true,
                         headerShown: false,
                     }}/> */}
-                    <Stack.Screen name="Pix" component={Pix} options={{
+                    {/* <Stack.Screen name="Pix" component={Pix} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
+                    }}/> */}
                     {/* <Stack.Screen name="Cartao" component={Cartao} options={{
                         title:'',
                         headerTransparent: true,
@@ -107,6 +111,26 @@ export default props =>{
                         headerTransparent: true,
                         headerShown: false,
                     }}/> */}
+                    {/* <Stack.Screen name="Teste1" component={testeAdd} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/>
+                    <Stack.Screen name="Teste2" component={testeView} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Teste3" component={TelaCarrinho} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    <Stack.Screen name="Teste4" component={MeuModal} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/>
                 </Stack.Navigator>
            </NavigationContainer>
         </SafeAreaView>

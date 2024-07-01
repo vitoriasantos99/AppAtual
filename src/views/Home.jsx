@@ -17,21 +17,9 @@ import { ListItem, Avatar, ThemeProvider, Card } from '@rneui/themed';
 
 
 export default props => {
+    
     const [text, setText] = useState('');
     const [search, setSearch] = useState('');
-
-    // const [num, setNum] = useState(0);
-
-
-    // function aumentar() {
-    //     setNum(num + 1);
-    //     console.log(num);
-    // }
-
-    // function diminuir() {
-    //     setNum(num - 1);
-    //     console.log(num);
-    // }
 
     return (
         <View style={{ flex: 1 }}>
