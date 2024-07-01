@@ -5,8 +5,22 @@ import { CheckBox, } from '@rneui/themed';
 
 
 export default props => {
-        
+    
+    const [usuario,setUsuario] = useState('')
+    const [senha,setSenha] = useState('')
 
+    const [resultado,setResultado] = useState('')
+    const [result, setResult] = useState('')
+
+    function entrar (usuario,senha){
+        if (usuario === "vitoria" && senha === 123){
+            console.warn ("Bem vindo")
+        }
+        else {
+            console.warn ("Usuario e senha incorreto")
+        }
+    }
+    
     const [checked, setChecked] = React.useState(false);
     const toggleCheckbox = () => setChecked(!checked);
     
@@ -32,6 +46,8 @@ export default props => {
                     <Pressable style={style.containerAlinhamento}>
                         <Icon name="at" size={18} color="#000"/>
                         <TextInput
+                        onChangeText={setUsuario}
+                        value={usuario}
                         textAlign="left"
                         label="Email"
                         keyboardType="email-address"
@@ -43,9 +59,12 @@ export default props => {
                     <Pressable  style={style.containerAlinhamento}>
                         <Icon name="lock-closed-outline" size={18} color="#000"/>
                         <TextInput
+                        onChangeText={setSenha}
+                        value={senha}
+                        // secureTextEntry={true}
                         textAlign="left"
-                        label="password"
-                        keyboardType="name-phone-pad"
+                        label="senha"
+                        keyboardType="numeric"
                         placeholder="Senha"
                         placeholderTextColor="#000"
                         />
@@ -61,6 +80,7 @@ export default props => {
                         iconType="material-community"
                         checkedIcon="checkbox-outline"
                         uncheckedIcon={'checkbox-blank-outline'}
+                        containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
                         />
                         <Text style={texto.textCheck}>Manter conectado?</Text>
                     </View>

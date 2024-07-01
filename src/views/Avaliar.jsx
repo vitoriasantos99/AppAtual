@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, ImageBackground, Pressable , Image, StyleSheet, TextInput, Alert} from "react-native";
 
 export default props =>{
+
+        const [value, setValue] = useState('');
+
     return(
         <View style={{flex:1}}>
             <ImageBackground
@@ -9,7 +12,7 @@ export default props =>{
                 style={{flex:1}}
             >
                 <View style={{flexDirection: 'row'}}>
-                    <Pressable onPress={()=> props.navigation.navigate('Login')}>
+                    <Pressable onPress={()=> props.navigation.navigate('Home')}>
                         <Image
                         source={require('../image/voltar.png')}
                         style={topo.voltar}/>
@@ -34,39 +37,36 @@ export default props =>{
                     <Text style={texto.servico}>Avalie nosso serviço</Text>
                 </View>
                 
-                <View style={style.container}>
-                    <Pressable style={style.containerAlinhamento}>
-                        <TextInput
-                        textAlign="left"
-                        label="Email"
-                        keyboardType="email-address"
-                        placeholder="Nome"
-                        placeholderTextColor="#000"
-                        />
-                    </Pressable>
-
-                    <Pressable style={style.containerAlinhamento}>
-                        <TextInput
-                        textAlign="left"
-                        label="Email"
-                        keyboardType="email-address"
-                        placeholder="E-mail"
-                        placeholderTextColor="#000"
-                        />
-                    </Pressable>
+                <View style={{flexDirection: 'colum'}}>
+                    <Text>Nome</Text>
+                    <View style={style.alinhamentoNome}>
+                        
+                            <TextInput
+                            keyboardType="email-address"
+                            placeholderTextColor="#000"
+                            />
+                    </View>
                 </View>
 
-                <View style={style.container}>
-                <Pressable style={style.containerAlinhamento}>
+                <Text>E-mail:</Text>
+                <View style={style.alinhamentoEmail}>
                         <TextInput
-                        textAlign="left"
-                        label="Email"
                         keyboardType="email-address"
-                        placeholder="Comentário"
                         placeholderTextColor="#000"
                         />
-                    </Pressable>
                 </View>
+
+                <Text>Comentário:</Text>
+                <View style={style.alinhamentoComents}>
+                        <TextInput
+                        keyboardType="email-address"
+                        placeholderTextColor="#000"
+                        />
+                </View>
+                
+                
+
+
                 <Pressable style={style.container}>
                     <View style={style.textBtn}>
                         <Pressable
@@ -146,7 +146,7 @@ const texto =  StyleSheet.create(
             color: "#fff",
             fontSize: 20,
             marginTop: 20,
-        }
+        },
     }
 )
 
@@ -166,7 +166,7 @@ const style = StyleSheet.create(
             borderColor:"#000",
             color: "#000",
             height: 40,
-            width: 360,
+            width: '80%',
             marginTop:15
         },
         button:{
@@ -185,5 +185,44 @@ const style = StyleSheet.create(
             fontWeight:"bold",
             fontSize:15
         },
+        alinhamentoNome:{
+            flexDirection:"row",
+            alignItems:"center",
+            borderRadius: 5,   
+            borderColor:"#000",
+            backgroundColor: 'white',
+            borderWidth: 1.2,
+            color: "#000",
+            height: 40,
+            width: '80%',
+            marginTop: 30,
+            marginLeft: 50,
+       },
+        alinhamentoEmail:{
+            flexDirection:"row",
+            alignItems:"center",
+            borderRadius: 5,   
+            borderColor:"#000",
+            backgroundColor: 'white',
+            borderWidth: 1.2,
+            color: "#000",
+            height: 40,
+            width: '80%',
+            marginLeft: 50,
+            marginTop: 5,
+        },
+        alinhamentoComents:{
+            alignItems:"center",
+            borderRadius: 5,   
+            borderColor:"#000",
+            backgroundColor: 'white',
+            marginLeft: 40,
+            height: 100, // Altura desejada da caixa de entrada
+            width: '80%', // Largura desejada da caixa de entrada
+            borderWidth: 1.2,
+            fontSize: 18,
+            marginTop: 5,
+            marginLeft: 50,
+        }
     }
 )

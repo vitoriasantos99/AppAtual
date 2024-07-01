@@ -9,7 +9,8 @@ import { SafeAreaView,
     Button, 
     Pressable, 
     Alert, 
-    ImageBackground } from "react-native";
+    ImageBackground,
+    ScrollView } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ListItem, Avatar, ThemeProvider, Card } from '@rneui/themed';
 
@@ -19,18 +20,18 @@ export default props => {
     const [text, setText] = useState('');
     const [search, setSearch] = useState('');
 
-    const [num, setNum] = useState(0);
+    // const [num, setNum] = useState(0);
 
 
-    function aumentar() {
-        setNum(num + 1);
-        console.log(num);
-    }
+    // function aumentar() {
+    //     setNum(num + 1);
+    //     console.log(num);
+    // }
 
-    function diminuir() {
-        setNum(num - 1);
-        console.log(num);
-    }
+    // function diminuir() {
+    //     setNum(num - 1);
+    //     console.log(num);
+    // }
 
     return (
         <View style={{ flex: 1 }}>
@@ -58,15 +59,47 @@ export default props => {
                             style={topo.usuario} />
                     </Pressable>
 
-                    <Pressable onPress={() => props.navigation.navigate('')}>
+                    <Pressable onPress={() => props.navigation.navigate('Carrinho')}>
                         <Image
                             source={require('../image/carrinho.png')}
                             style={topo.carrinho} />
                     </Pressable>
                 </View>
 
-                <Text style={style.texto1}>Os Mais Vendidos</Text>
 
+                <ScrollView>
+                <Text style={style.texto1}>Produtos</Text>
+
+                <View style={cartao.fundo}>
+                    <View style={cartao.produto}>
+                        <Image
+                            source={require('../image/cartao.png')}
+                            style={style.cartao} />
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
+                            <Text style={texto.perso}>Personalizado</Text>
+                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
+                            <Text style={texto.valor}>R$35,00</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Pressable
+                            onPress={() => props.navigation.navigate('Carrinho')}
+                        >
+                            <View style={botao.quanti}>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
+                        </View>
+
+                        </Pressable>
+                        
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                            <Text style={texto.comprar}>Comprar</Text>
+                        </Pressable>
+                    </View>
+                </View>
 
                 <View style={cartao.fundo}>
                     <View style={cartao.produto}>
@@ -82,96 +115,137 @@ export default props => {
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <View style={botao.quanti}>
-                            <Pressable>
-                                <Image
-                                    source={require('../image/menos.png')}
-                                    style={imagem.menos}
-                                />
-                            </Pressable>
-                            <Text style={texto.quantidade}>0</Text>
-                            <Pressable>
-                                <Image
-                                    source={require('../image/mais.png')}
-                                    style={imagem.mais}
-                                />
-                            </Pressable>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
                         </View>
                         <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
-                    <Icon name="arrow-forward-circle-sharp" size={25} color="#000" style={topo.icone} />
+                    
                 </View>
 
-               
-               
-
-                {/* <View style={{ flexDirection: 'row' }}>
-                    <Image
-                        source={require('../image/news.png')}
-                        style={style.news}
-                    />
-                    <TextInput
-                        style={style.fundo}
-                        onChangeText={setText}
-                        value={text}
-                        placeholder=""
-                        placeholderTextColor="#000"
-                        keyboardType="email-address"
-                        cursorColor="#000"
-                    />
+                <View style={cartao.fundo}>
+                    <View style={cartao.produto}>
+                        <Image
+                            source={require('../image/cartao.png')}
+                            style={style.cartao} />
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
+                            <Text style={texto.perso}>Personalizado</Text>
+                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
+                            <Text style={texto.valor}>R$35,00</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <View style={botao.quanti}>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
+                        </View>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                            <Text style={texto.comprar}>Comprar</Text>
+                        </Pressable>
+                    </View>
+                    
                 </View>
-                <View>
-                    <Pressable
-                        style={({ pressed }) => [
-                            {
-                                backgroundColor: pressed,
-                            },
-                            style.button,
-                        ]}
-                        onPress={() => { Alert.alert('') }}>
-                        <Text style={style.textBtn}>Inscreva-se</Text>
+
+                <View style={cartao.fundo}>
+                    <View style={cartao.produto}>
+                        <Image
+                            source={require('../image/cartao.png')}
+                            style={style.cartao} />
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
+                            <Text style={texto.perso}>Personalizado</Text>
+                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
+                            <Text style={texto.valor}>R$35,00</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <View style={botao.quanti}>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
+                        </View>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                            <Text style={texto.comprar}>Comprar</Text>
+                        </Pressable>
+                    </View>
+                    
+                </View>
+
+                <View style={cartao.fundo}>
+                    <View style={cartao.produto}>
+                        <Image
+                            source={require('../image/cartao.png')}
+                            style={style.cartao} />
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
+                            <Text style={texto.perso}>Personalizado</Text>
+                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
+                            <Text style={texto.valor}>R$35,00</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <View style={botao.quanti}>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
+                        </View>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                            <Text style={texto.comprar}>Comprar</Text>
+                        </Pressable>
+                    </View>
+                    
+                </View>
+
+                <View style={cartao.fundo}>
+                    <View style={cartao.produto}>
+                        <Image
+                            source={require('../image/cartao.png')}
+                            style={style.cartao} />
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
+                            <Text style={texto.perso}>Personalizado</Text>
+                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
+                            <Text style={texto.valor}>R$35,00</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <View style={botao.quanti}>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
+                        </View>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                            <Text style={texto.comprar}>Comprar</Text>
+                        </Pressable>
+                    </View>
+                    
+                </View>
+
+
+                <View style={{ flexDirection: "row"}}>
+                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('Sobre')}>
+                        <View style={style.rodapeTxt1}><Text>Sobre Nós</Text></View>
                     </Pressable>
-                </View> */}
-
-
-
-
-                <Pressable style={style.buttonTodos} onPress={() => props.navigation.navigate('Compra')}>
-                    <Text style={style.mais}>Ver todos</Text>
-                </Pressable>
-
-
-                {/* <View style={{ flexDirection: "row" }}>
-                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('')}>
-                        <View style={style.rodapeTxt1}><Text>Produtos</Text></View>
-                    </Pressable>
-                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('')}>
+                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('Contato')}>
                         <View style={style.rodapeTxt2}><Text>Contatos</Text></View>
                     </Pressable>
-                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('')}>
-                        <View style={style.rodapeTxt3}><Text>Sobre Nós</Text></View>
+                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('Equipe')}>
+                        <View style={style.rodapeTxt3}><Text>Equipe</Text></View>
                     </Pressable>
+                </View>
 
-                    <View style={style.rodapeImg}>
-                        <Image
-                            source={require('../image/whatsapp.png')}
-                            style={imagem.whats}
-                        />
-                        <Image
-                            source={require('../image/facebook.png')}
-                            style={imagem.facebook}
-                        />
-                        <Image
-                            source={require('../image/instagram.png')}
-                            style={imagem.insta}
-                        />
-                    </View>
-                </View> */}
-
-
+                </ScrollView>
             </ImageBackground>
-
         </View>
 
     )
@@ -364,6 +438,11 @@ const imagem = StyleSheet.create(
             marginTop: 10,
             marginLeft: 10,
         },
+        carrinho: {
+            width: 40,
+            height: 40,
+            marginLeft: 60,
+        }
     }
 )
 
@@ -373,16 +452,17 @@ const botao = StyleSheet.create(
             width: 170,
             height: 40,
             backgroundColor: "#1E74C0",
-            marginLeft: 20,
+            marginLeft: 40,
             marginTop: 7,
             borderRadius: 30,
+
         },
         quanti: {
-            backgroundColor: 'pink',
+            backgroundColor: '#1E74C0',
             borderRadius: 30,
             width: 170,
             height: 40,
-            marginLeft: 20,
+            marginLeft: 12,
             marginTop: 7,
         },
     }
@@ -406,6 +486,7 @@ const texto = StyleSheet.create(
             color: '#000',
             marginLeft: 50,
             marginTop: 20,
+            fontSize: 10,
         },
         perso: {
             color: '#000',

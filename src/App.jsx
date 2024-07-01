@@ -11,9 +11,14 @@ import Senha from "./views/Senha";
 import Compra from "./views/Compra";
 import Pagamento from "./views/Pagamento";
 import Pix from "./views/Pix";
-import Contacts from "./views/Contacts";
+import Contacts from "./views/Contatos";
 import Avaliar from "./views/Avaliar";
 import Equipe from "./views/Equipe";
+import Cartao from "./views/Cartao";
+import Boleto from "./views/Boleto";
+import Carrinho from "./views/Carrinho";
+import Cadastro from "./views/Cadastro";
+import CarrinhoCompras from "./views/teste";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,23 +36,23 @@ export default props =>{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
-                    <Stack.Screen name="Login" component={Login} options={{
+                    }}/> */}
+                    {/* <Stack.Screen name="Compra" component={Compra} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
-                    <Stack.Screen name="Register" component={Register} options={{
+                    }}/> */}
+                    {/* <Stack.Screen name="Login" component={Login} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
-                    <Stack.Screen name="Senha" component={Senha} options={{
+                    }}/> */}
+                    {/* <Stack.Screen name="Register" component={Register} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
-                    <Stack.Screen name="Compra" component={Compra} options={{
+                    }}/> */}
+                    {/* <Stack.Screen name="Senha" component={Senha} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
@@ -57,7 +62,17 @@ export default props =>{
                         headerTransparent: true,
                         headerShown: false,
                     }}/> */}
-                    {/* <Stack.Screen name="Pix" component={Pix} options={{
+                    <Stack.Screen name="Pix" component={Pix} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/>
+                    {/* <Stack.Screen name="Cartao" component={Cartao} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Boleto" component={Boleto} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
@@ -72,11 +87,26 @@ export default props =>{
                         headerTransparent: true,
                         headerShown: false,
                     }}/> */}
-                    <Stack.Screen name="Equipe" component={Equipe} options={{
+                    {/* <Stack.Screen name="Equipe" component={Equipe} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
+                    }}/> */}
+                    {/* <Stack.Screen name="Carrinho" component={Carrinho} options={{
+                      title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Cadastro" component={Cadastro} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
+                    {/* <Stack.Screen name="Teste" component={CarrinhoCompras} options={{
+                        title:'',
+                        headerTransparent: true,
+                        headerShown: false,
+                    }}/> */}
                 </Stack.Navigator>
            </NavigationContainer>
         </SafeAreaView>

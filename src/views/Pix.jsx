@@ -10,7 +10,7 @@ export default props =>{
             >
 
                 <View style={{flexDirection: 'row'}}>
-                    <Pressable onPress={()=> props.navigation.navigate('Login')}>
+                    <Pressable onPress={()=> props.navigation.navigate('Pagamento')}>
                         <Image
                         source={require('../image/voltar.png')}
                         style={topo.voltar}/>
@@ -129,6 +129,8 @@ const style = StyleSheet.create(
             height: 270,
             marginLeft: 25,
             marginTop: 10,
+            borderColor: 'black',
+            borderWidth: 1,
         },
         valor:{
             flexDirection: 'row',

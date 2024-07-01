@@ -9,7 +9,7 @@ export default props =>{
                 style={{flex:1}}
             >
                 <View style={{flexDirection: 'row'}}>
-                    <Pressable onPress={()=> props.navigation.navigate('Login')}>
+                    <Pressable onPress={()=> props.navigation.navigate('Home')}>
                         <Image
                         source={require('../image/voltar.png')}
                         style={topo.voltar}/>
