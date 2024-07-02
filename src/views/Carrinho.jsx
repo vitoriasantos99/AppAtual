@@ -175,7 +175,6 @@ export default props => {
 
                             />
                         </TouchableOpacity>
-
                     </View>
 
 

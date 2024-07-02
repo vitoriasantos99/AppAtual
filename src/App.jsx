@@ -66,11 +66,11 @@ export default props =>{
                         headerTransparent: true,
                         headerShown: false,
                     }}/> */}
-                    {/* <Stack.Screen name="Pix" component={Pix} options={{
+                    <Stack.Screen name="Pix" component={Pix} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/> */}
+                    }}/>
                     {/* <Stack.Screen name="Cartao" component={Cartao} options={{
                         title:'',
                         headerTransparent: true,
@@ -126,11 +126,11 @@ export default props =>{
                         headerTransparent: true,
                         headerShown: false,
                     }}/> */}
-                    <Stack.Screen name="Teste4" component={MeuModal} options={{
+                    {/* <Stack.Screen name="Teste4" component={MeuModal} options={{
                         title:'',
                         headerTransparent: true,
                         headerShown: false,
-                    }}/>
+                    }}/> */}
                 </Stack.Navigator>
            </NavigationContainer>
         </SafeAreaView>

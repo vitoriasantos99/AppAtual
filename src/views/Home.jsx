@@ -59,9 +59,9 @@ export default props => {
                 <Text style={style.texto1}>Produtos</Text>
 
                 <View style={cartao.fundo}>
-                    <View style={cartao.produto}>
+                    <View style={cartao.produtoCartao}>
                         <Image
-                            source={require('../image/cartao.png')}
+                            source={require('../image/cartao2.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
                             <Text style={texto.cartaVisita}>Cartão de Visita</Text>
@@ -89,10 +89,36 @@ export default props => {
                     </View>
                 </View>
 
-                <View style={cartao.fundo}>
-                    <View style={cartao.produto}>
+                <View style={cartao.bannerfundo}>
+                    <View style={cartao.produtoBanner}>
                         <Image
-                            source={require('../image/cartao.png')}
+                            source={require('../image/banner.png')}
+                            style={style.banner} />
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
+                            <Text style={texto.perso}>Personalizado</Text>
+                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
+                            <Text style={texto.valor}>R$35,00</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                        <View style={botao.quanti}>
+                            <Image
+                                source={require('../image/carrinho.png')}
+                                style={imagem.carrinho}
+                            />
+                        </View>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                            <Text style={texto.comprar}>Comprar</Text>
+                        </Pressable>
+                    </View>
+                    
+                </View>
+
+                <View style={cartao.envelopefundo}>
+                    <View style={cartao.produtoEnvelope}>
+                        <Image
+                            source={require('../image/envelope.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
                             <Text style={texto.cartaVisita}>Cartão de Visita</Text>
@@ -115,10 +141,10 @@ export default props => {
                     
                 </View>
 
-                <View style={cartao.fundo}>
-                    <View style={cartao.produto}>
+                <View style={cartao.pastaFundo}>
+                    <View style={cartao.produtoPasta}>
                         <Image
-                            source={require('../image/cartao.png')}
+                            source={require('../image/pasta.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
                             <Text style={texto.cartaVisita}>Cartão de Visita</Text>
@@ -141,10 +167,10 @@ export default props => {
                     
                 </View>
 
-                <View style={cartao.fundo}>
-                    <View style={cartao.produto}>
+                <View style={cartao.folhetoFundo}>
+                    <View style={cartao.produtoFolheto}>
                         <Image
-                            source={require('../image/cartao.png')}
+                            source={require('../image/folheto.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
                             <Text style={texto.cartaVisita}>Cartão de Visita</Text>
@@ -167,10 +193,10 @@ export default props => {
                     
                 </View>
 
-                <View style={cartao.fundo}>
-                    <View style={cartao.produto}>
+                <View style={cartao.blocoFundo}>
+                    <View style={cartao.produtoBlocos}>
                         <Image
-                            source={require('../image/cartao.png')}
+                            source={require('../image/blocos.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
                             <Text style={texto.cartaVisita}>Cartão de Visita</Text>
@@ -191,45 +217,6 @@ export default props => {
                         </Pressable>
                     </View>
                     
-                </View>
-
-                <View style={cartao.fundo}>
-                    <View style={cartao.produto}>
-                        <Image
-                            source={require('../image/cartao.png')}
-                            style={style.cartao} />
-                        <View style={{ flexDirection: 'column' }}>
-                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={botao.quanti}>
-                            <Image
-                                source={require('../image/carrinho.png')}
-                                style={imagem.carrinho}
-                            />
-                        </View>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
-                            <Text style={texto.comprar}>Comprar</Text>
-                        </Pressable>
-                    </View>
-                    
-                </View>
-
-
-                <View style={{ flexDirection: "row"}}>
-                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('Sobre')}>
-                        <View style={style.rodapeTxt1}><Text>Sobre Nós</Text></View>
-                    </Pressable>
-                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('Contato')}>
-                        <View style={style.rodapeTxt2}><Text>Contatos</Text></View>
-                    </Pressable>
-                    <Pressable style={style.contAlinhamentoText} onPress={() => props.navigation.navigate('Equipe')}>
-                        <View style={style.rodapeTxt3}><Text>Equipe</Text></View>
-                    </Pressable>
                 </View>
 
                 </ScrollView>
@@ -311,16 +298,18 @@ const style = StyleSheet.create(
             margin: 15,
         },
         cartao: {
-            width: 150,
-            height: 90,
+            width: 120, //largura
+            height: 100, //altura
             margin: 15,
-            marginLeft: 15,
-            marginTop: 30,
+            marginLeft: 30,
+            marginTop: 25,
         },
         banner: {
-            width: 50,
-            height: 50,
+            width: 115, //largura
+            height: 100, //altura
             margin: 15,
+            marginLeft: 30,
+            marginTop: 25,
         },
         rodapeTxt1: {
             flexDirection: 'row',
@@ -514,7 +503,49 @@ const cartao = StyleSheet.create(
             height: 220,
             marginTop: 10,
         },
-        produto: {
+        bannerfundo:{
+            backgroundColor: '#D4E2F3',
+            marginLeft: 20,
+            marginRight: 20,
+            borderRadius: 30,
+            height: 220,
+            marginTop: 10,
+
+        },
+        envelopefundo:{
+            backgroundColor: 'white',
+            marginLeft: 20,
+            marginRight: 20,
+            borderRadius: 30,
+            height: 220,
+            marginTop: 10,
+
+        },
+        pastaFundo:{
+            backgroundColor: '#D4E2F3',
+            marginLeft: 20,
+            marginRight: 20,
+            borderRadius: 30,
+            height: 220,
+            marginTop: 10,
+        },
+        folhetoFundo:{
+            backgroundColor: 'white',
+            marginLeft: 20,
+            marginRight: 20,
+            borderRadius: 30,
+            height: 220,
+            marginTop: 10,
+        },
+        blocoFundo:{
+            backgroundColor: '#D4E2F3',
+            marginLeft: 20,
+            marginRight: 20,
+            borderRadius: 30,
+            height: 220,
+            marginTop: 10,
+        },
+        produtoCartao: {
             flexDirection: 'row',
             backgroundColor: '#D4E2F3',
             marginLeft: 10,
@@ -523,6 +554,56 @@ const cartao = StyleSheet.create(
             width: 180,
             height: 150,
             borderRadius: 30,
-        }
+        },
+        produtoBanner: {
+            flexDirection: 'row',
+            backgroundColor: '#fff',
+            marginLeft: 10,
+            marginRight: 265,
+            marginTop: 10,
+            width: 180,
+            height: 150,
+            borderRadius: 30,
+        },
+        produtoEnvelope: {
+            flexDirection: 'row',
+            backgroundColor: '#D4E2F3',
+            marginLeft: 10,
+            marginRight: 265,
+            marginTop: 10,
+            width: 180,
+            height: 150,
+            borderRadius: 30,
+        },
+        produtoPasta: {
+            flexDirection: 'row',
+            backgroundColor: '#fff',
+            marginLeft: 10,
+            marginRight: 265,
+            marginTop: 10,
+            width: 180,
+            height: 150,
+            borderRadius: 30,
+        },
+        produtoFolheto: {
+            flexDirection: 'row',
+            backgroundColor: '#D4E2F3',
+            marginLeft: 10,
+            marginRight: 265,
+            marginTop: 10,
+            width: 180,
+            height: 150,
+            borderRadius: 30,
+        },
+        produtoBlocos: {
+            flexDirection: 'row',
+            backgroundColor: '#fff',
+            marginLeft: 10,
+            marginRight: 265,
+            marginTop: 10,
+            width: 180,
+            height: 150,
+            borderRadius: 30,
+        },
     }
 )

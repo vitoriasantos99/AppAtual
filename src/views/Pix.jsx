@@ -1,7 +1,16 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet, Pressable, Image} from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Pressable, Image, Button} from "react-native";
+import Pdf from 'react-native-pdf';
 
 export default props =>{
+
+    const pdfPath = 'file:///android_asset/documents/exemplo.pdf'; // Caminho para o arquivo na pasta assets no Android
+    const pdfRef = React.createRef();
+
+    const handleOpenPDF = () => {
+        pdfRef.current && pdfRef.current.show();
+    };
+
     return(
         <View style={{flex:1}}>
             <ImageBackground
@@ -41,6 +50,24 @@ export default props =>{
                         <Text style={texto.expira}>QrCode expira em:</Text>
                         <Text style={texto.tempo}>15 min</Text>
                     </View>
+                </View>
+
+                <View style={{flexDirection: 'row'}}>
+                    <Text style={style.compartilhar}>
+                        Compartilhar
+                    </Text>
+                    <Button title="Abrir PDF" onPress={handleOpenPDF} />
+            <Pdf
+                ref={pdfRef}
+                source={{ uri: pdfPath, cache: true }}
+                onLoadComplete={(numberOfPages, filePath) => {
+                    console.log(`Número de páginas: ${numberOfPages}`);
+                }}
+                onError={(error) => {
+                    console.error('Erro ao abrir o PDF:', error);
+                }}
+                style={{ flex: 1, marginTop: 10 }}
+            />
                 </View>
             </ImageBackground>
         </View>
@@ -140,6 +167,8 @@ const style = StyleSheet.create(
             marginLeft: 25,
             marginTop: 15,
             margin: 8,
+            borderColor: "#000",
+            borderWidth: 1.0
         },
         qrcode:{
             flexDirection: 'row',
@@ -148,6 +177,21 @@ const style = StyleSheet.create(
             height: 45,
             marginLeft: 25,
             margin: 10,
+            borderColor: "#000",
+            borderWidth: 1.0
+        },
+        compartilhar:{
+            color: '#000',
+            marginLeft: 90,
+            fontSize: 20,
+            marginTop: 10,
+
+        },
+        baixar:{
+            color: 'red',
+            marginLeft: 50,
+            fontSize: 20,
+            marginTop: 10,
         }
     }
 )

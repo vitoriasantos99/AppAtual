@@ -1,6 +1,8 @@
 import React, {useState} from "react";
-import { View, Text, Button, Modal, StyleSheet, Pressable, TextBase, } from "react-native";
+import { View, Text, Button, Modal, StyleSheet, Pressable, TextInput } from "react-native";
 import { CheckBox, } from '@rneui/themed';
+
+import axios from 'axios';
 
 // export default props => {
     
@@ -63,9 +65,63 @@ const MeuModal = () => {
         fecharModal1();
   }
 
+  
+    
+
+  const [cep, setCEP] = useState('');
+  const [endereco, setEndereco] = useState(null);
+  const [erro, setErro] = useState(null);
+
+  const buscarCEP = async () => {
+      try {
+          const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+          const data = response.data;
+          if (data.erro) {
+              setEndereco(null);
+              setErro('CEP não encontrado');
+          } else {
+              setEndereco(data);
+              setErro(null);
+          }
+      } catch (error) {
+          console.error('Erro ao buscar CEP:', error);
+          setEndereco(null);
+          setErro('Erro ao buscar CEP. Verifique sua conexão.');
+      }
+  };
 
 return (
+    
+
     <View style={style.container}>
+
+      <TextInput
+                style={style.input}
+                placeholder="Digite o CEP"
+                keyboardType="numeric"
+                value={cep}
+                onChangeText={text => setCEP(text)}
+            />
+            <Button
+                title="Buscar CEP"
+                onPress={buscarCEP}
+            />
+
+            {endereco && (
+                <View style={style.resultado}>
+                    <Text style={style.label}>CEP encontrado:</Text>
+                    <Text>{endereco.cep}</Text>
+                    <Text>{endereco.logradouro}</Text>
+                    <Text>{endereco.bairro}</Text>
+                    <Text>{endereco.localidade} - {endereco.uf}</Text>
+                </View>
+            )}
+
+            {erro && (
+                <Text style={style.erro}>{erro}</Text>
+            )}
+
+
         <View style={{margin: 5,}}>
             <Pressable 
                 onPress={abrirModal1} 
@@ -236,7 +292,20 @@ const style = StyleSheet.create (
         padding: 10,
         backgroundColor: '#e0e0e0',
         borderRadius: 5,
-      }
+      },
+      container2: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        padding: 10,
+        marginBottom: 10,
+        width: '80%',
+    },
 });
 
 const botao = StyleSheet.create(
