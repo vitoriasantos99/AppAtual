@@ -13,9 +13,9 @@ export default props => {
                 style={style.fundo}    
                     >
             
-            <Text style={style.text}>GF Gráficas</Text>
+            <Text style={style.text}>GF Gráfica</Text>
 
-            <Pressable style={style.button} onPress={()=> props.navigation.navigate('Home')}>
+            <Pressable style={style.button} onPress={()=> props.navigation.navigate('Login')}>
                 <Text style={style.textBtn}>ENTRAR</Text>
                 <Icon name="arrow-forward-circle-sharp" size={25} color="#FFF"/>
             </Pressable>

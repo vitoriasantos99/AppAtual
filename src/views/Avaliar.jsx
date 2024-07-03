@@ -38,31 +38,35 @@ export default props =>{
                 </View>
                 
                 <View style={{flexDirection: 'colum'}}>
-                    <Text>Nome</Text>
                     <View style={style.alinhamentoNome}>
-                        
                             <TextInput
                             keyboardType="email-address"
                             placeholderTextColor="#000"
+                            placeholder="Nome"
                             />
                     </View>
                 </View>
 
-                <Text>E-mail:</Text>
-                <View style={style.alinhamentoEmail}>
-                        <TextInput
-                        keyboardType="email-address"
-                        placeholderTextColor="#000"
-                        />
+                <View style={{flexDirection: 'colum'}}>
+                    <View style={style.alinhamentoNome}>
+                            <TextInput
+                            keyboardType="email-address"
+                            placeholderTextColor="#000"
+                            placeholder="E-mail"
+                            />
+                    </View>
                 </View>
 
-                <Text>Comentário:</Text>
-                <View style={style.alinhamentoComents}>
-                        <TextInput
-                        keyboardType="email-address"
-                        placeholderTextColor="#000"
-                        />
+                <View style={{flexDirection: 'colum'}}>
+                    <View style={style.alinhamentoNome}>
+                            <TextInput
+                            keyboardType="email-address"
+                            placeholderTextColor="#000"
+                            placeholder="Comentário"
+                            />
+                    </View>
                 </View>
+
                 
                 
 
@@ -76,7 +80,7 @@ export default props =>{
                                 },
                                 style.button, 
                             ]}
-                            onPress={() => {Alert.alert('Obrigado')}}>   
+                            onPress={()=> props.navigation.navigate('Home')}>   
                             <Text style={texto.textoBotao}>Enviar</Text>
                         </Pressable>
                     </View>

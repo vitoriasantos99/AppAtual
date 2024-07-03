@@ -51,7 +51,7 @@ export default props => {
             <Text style={style.text}>Or, register with email...</Text>
 
                 <Pressable style={style.container}>
-                <Pressable style={style.containerAlinhamento}>
+                    <Pressable style={style.containerAlinhamento}>
                         <Icon name="person-outline" size={18} color="#000"/>
                         <TextInput
                         textAlign="left"
@@ -62,7 +62,20 @@ export default props => {
                         />
                     </Pressable>
 
-                <Pressable style={style.containerAlinhamento}>
+                    <Pressable style={style.containerAlinhamento}>
+                        <Icon name="person-outline" size={18} color="#000"/>
+                        <TextInput
+                        textAlign="left"
+                        label="person"
+                        keyboardType="numeric"
+                        placeholder="CPF"
+                        placeholderTextColor="#000"
+                        />
+                    </Pressable>
+
+                    
+
+                    <Pressable style={style.containerAlinhamento}>
                         <Icon name="at" size={18} color="#000"/>
                         <TextInput
                         textAlign="left"
@@ -263,7 +276,7 @@ const texto = StyleSheet.create(
             fontWeight:"bold",
             color:"#fff",
             marginTop: 40,
-            marginBottom: 70,
+            marginBottom: 50,
             marginLeft: 155,
         },
         textoBotao:{

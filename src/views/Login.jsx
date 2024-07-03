@@ -93,7 +93,7 @@ export default props => {
                                 },
                                 style.button, 
                             ]}
-                            onPress={() => {Alert.alert('Bem Vindo')}}>   
+                            onPress={()=> props.navigation.navigate('Home')}>   
                             <Text style={texto.textoBotao}>Logar</Text>
                         </Pressable>
                     </View>
@@ -178,12 +178,13 @@ const style = StyleSheet.create(
         containerAlinhamento:{
             flexDirection:"row",
             alignItems:"center",
-            borderBottomWidth:1,    
+            borderBottomWidth:1.2,    
             borderColor:"#000",
             color: "#000",
-            height: 40,
+            height: 50,
             width: 360,
-            marginTop:15
+            marginTop:15,
+            marginLeft: 10,
         },
         button:{
             width:350,
@@ -199,7 +200,8 @@ const style = StyleSheet.create(
             color: "#000",
             fontFamily:"Pixelify Sans",
             fontWeight:"bold",
-            fontSize:20
+            fontSize:20,
+            marginLeft: 18,
         },
         text:{
             textAlign:"center",
@@ -240,7 +242,7 @@ const style = StyleSheet.create(
         },       
         checkbox: {
             flexDirection: 'row',
-            marginLeft: 50,
+            marginLeft: 60,
         },
         
     }
@@ -290,6 +292,7 @@ const texto = StyleSheet.create(
             marginTop: 18,
             backgroundColor: 'transparent',
             color:"#fff",
+            marginLeft: 30,
         },
         textoBotao:{
             color:"#fff",

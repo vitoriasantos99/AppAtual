@@ -28,9 +28,13 @@ export default props => {
                 style={fundo.papelFundo}>
 
                 <View style={{ flexDirection: 'row' }}>
+                    <Pressable
+                        onPress={() => props.navigation.navigate('Equipe')}
+                    >
                     <Image
-                        source={require('../image/logo.png')}
+                        source={require('../image/logoGF.png')}
                         style={topo.logo} />
+                    </Pressable>
 
                     <TextInput
                         style={topo.pesquisa}
@@ -54,9 +58,25 @@ export default props => {
                     </Pressable>
                 </View>
 
+                <View style={{flexDirection: 'row'}}>
+                    <Pressable
+                        onPress={() => props.navigation.navigate('Contatos')}
+                        style={botao.contatos}
+                    >
+                        <Text style={texto.contatos}>Contatos</Text>
+                    </Pressable>
+                    <Pressable
+                        onPress={() => props.navigation.navigate('Equipe')}
+                        style={botao.equipe}
+                    >
+                        <Text style={texto.equipe}>Equipe</Text>
+                    </Pressable>
+
+                </View>
+
 
                 <ScrollView>
-                <Text style={style.texto1}>Produtos</Text>
+                <Text style={style.texto1}>Nossos Produtos</Text>
 
                 <View style={cartao.fundo}>
                     <View style={cartao.produtoCartao}>
@@ -65,9 +85,9 @@ export default props => {
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
                             <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
+                            <Text style={texto.persoCartao}>Personalizado</Text>
+                            <Text style={texto.aVistaCartao}>Á partir de 100 uni</Text>
+                            <Text style={texto.valorCartao}>R$35,00</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
@@ -83,7 +103,7 @@ export default props => {
 
                         </Pressable>
                         
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('CartaoVisita')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -95,10 +115,10 @@ export default props => {
                             source={require('../image/banner.png')}
                             style={style.banner} />
                         <View style={{ flexDirection: 'column' }}>
-                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
+                            <Text style={texto.banner}>Banner</Text>
+                            <Text style={texto.persoBanner}>Personalizado</Text>
+                            <Text style={texto.aVistaBanner}>R$60,00</Text>
+                            <Text style={texto.valorBanner}>1 uni</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
@@ -108,7 +128,7 @@ export default props => {
                                 style={imagem.carrinho}
                             />
                         </View>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Banner')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -121,10 +141,10 @@ export default props => {
                             source={require('../image/envelope.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
-                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
+                            <Text style={texto.envelope}>Envelope</Text>
+                            <Text style={texto.persoEnvelope}>Personalizado</Text>
+                            <Text style={texto.aVistaEnvelope}>R$140,00</Text>
+                            <Text style={texto.valorEnvelope}>500 uni</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
@@ -134,7 +154,7 @@ export default props => {
                                 style={imagem.carrinho}
                             />
                         </View>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Envelope')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -147,10 +167,10 @@ export default props => {
                             source={require('../image/pasta.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
-                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
+                            <Text style={texto.pasta}>Pastas</Text>
+                            <Text style={texto.persoPasta}>Personalizado</Text>
+                            <Text style={texto.aVistaPasta}>R$400,00</Text>
+                            <Text style={texto.valorPasta}>500 uni</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
@@ -160,7 +180,7 @@ export default props => {
                                 style={imagem.carrinho}
                             />
                         </View>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Pasta')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -173,10 +193,10 @@ export default props => {
                             source={require('../image/folheto.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
-                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
+                            <Text style={texto.folheto}>Folheto</Text>
+                            <Text style={texto.persoFolheto}>Personalizado</Text>
+                            <Text style={texto.aVistaFolheto}>R$200,00</Text>
+                            <Text style={texto.valorFolheto}>1.000 uni</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
@@ -186,7 +206,7 @@ export default props => {
                                 style={imagem.carrinho}
                             />
                         </View>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Folheto')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -199,10 +219,10 @@ export default props => {
                             source={require('../image/blocos.png')}
                             style={style.cartao} />
                         <View style={{ flexDirection: 'column' }}>
-                            <Text style={texto.cartaVisita}>Cartão de Visita</Text>
-                            <Text style={texto.perso}>Personalizado</Text>
-                            <Text style={texto.aVista}>Á partir de 100 un.</Text>
-                            <Text style={texto.valor}>R$35,00</Text>
+                            <Text style={texto.blocos}>Blocos</Text>
+                            <Text style={texto.persoBlocos}>Personalizado</Text>
+                            <Text style={texto.aVistaBlocos}>R$140,00</Text>
+                            <Text style={texto.valorBlocos}>10 uni</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
@@ -212,7 +232,7 @@ export default props => {
                                 style={imagem.carrinho}
                             />
                         </View>
-                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Compra')}>
+                        <Pressable style={botao.comprar} onPress={() => props.navigation.navigate('Bloco')}>
                             <Text style={texto.comprar}>Comprar</Text>
                         </Pressable>
                     </View>
@@ -237,11 +257,12 @@ const topo = StyleSheet.create(
             margin: 5,
         },
         logo: {
-            width: 35,
+            width: 45,
             height: 30,
             margin: 5,
             marginRight: 30,
             marginTop: 12,
+            marginLeft: 5,
         },
         usuario: {
             width: 30,
@@ -285,7 +306,8 @@ const style = StyleSheet.create(
         texto1: {
             textAlign: 'center',
             color: '#000',
-            fontSize: 20,
+            fontSize: 25,
+            marginTop: 20,
         },
         mais: {
             textAlign: 'right',
@@ -442,6 +464,28 @@ const botao = StyleSheet.create(
             marginLeft: 12,
             marginTop: 7,
         },
+        contatos:{
+            width: 170,
+            height: 40,
+            // backgroundColor: "#000",
+            marginLeft: 40,
+            marginTop: 7,
+            borderRadius: 30,
+            borderColor: '#000',
+            borderWidth: 1,
+
+        },
+        equipe:{
+            width: 170,
+            height: 40,
+            // backgroundColor: "#000",
+            marginLeft: 40,
+            marginTop: 7,
+            borderRadius: 30,
+            borderColor: '#000',
+            borderWidth: 1,
+
+        }
     }
 )
 
@@ -461,26 +505,141 @@ const texto = StyleSheet.create(
         },
         cartaVisita: {
             color: '#000',
-            marginLeft: 50,
+            marginLeft: 70,
+            marginTop: 30,
+            fontSize: 15,
+        },
+        persoCartao: {
+            color: '#000',
+            marginLeft: 75,
+            fontSize: 15,
+        },
+        aVistaCartao: {
+            color: '#000',
+            marginLeft: 63,
+        },
+        valorCartao: {
+            color: '#000',
+            marginLeft: 100
+        },
+
+        banner: {
+            color: '#000',
+            marginLeft: 100,
+            marginTop: 30,
+            fontSize: 18,
+        },
+        persoBanner: {
+            color: '#000',
+            marginLeft: 80,
+            fontSize: 15,
+        },
+        aVistaBanner: {
+            color: '#000',
+            marginLeft: 100,
+        },
+        valorBanner: {
+            color: '#000',
+            marginLeft: 110,
+        },
+
+        envelope: {
+            color: '#000',
+            marginLeft: 95,
+            marginTop: 30,
+            fontSize: 16,
+        },
+        persoEnvelope: {
+            color: '#000',
+            marginLeft: 80,
+            fontSize: 15,
+        },
+        aVistaEnvelope: {
+            color: '#000',
+            marginLeft: 100,
+        },
+        valorEnvelope: {
+            color: '#000',
+            marginLeft: 110,
+        },
+
+        pasta: {
+            color: '#000',
+            marginLeft: 100,
             marginTop: 20,
-            fontSize: 10,
+            fontSize: 16,
         },
-        perso: {
+        persoPasta: {
             color: '#000',
-            marginLeft: 55,
+            marginLeft: 80,
+            fontSize: 15,
         },
-        aVista: {
+        aVistaPasta: {
             color: '#000',
-            marginLeft: 45,
+            marginLeft: 99,
         },
-        valor: {
+        valorPasta: {
             color: '#000',
-            marginLeft: 75
+            marginLeft: 107,
         },
+
+        folheto: {
+            color: '#000',
+            marginLeft: 100,
+            marginTop: 20,
+            fontSize: 16,
+        },
+        persoFolheto: {
+            color: '#000',
+            marginLeft: 80,
+            fontSize: 15,
+        },
+        aVistaFolheto: {
+            color: '#000',
+            marginLeft: 100,
+        },
+        valorFolheto: {
+            color: '#000',
+            marginLeft: 100,
+        },
+
+        blocos: {
+            color: '#000',
+            marginLeft: 100,
+            marginTop: 20,
+            fontSize: 16,
+        },
+        persoBlocos: {
+            color: '#000',
+            marginLeft: 75,
+            fontSize: 15,
+        },
+        aVistaBlocos: {
+            color: '#000',
+            marginLeft: 90,
+        },
+        valorBlocos: {
+            color: '#000',
+            marginLeft: 110,
+        },
+
+
         quantidade:{
         //    marginLeft: 100,
            color: 'black',
            textAlign: 'center',
+        },
+        contatos:{
+            color: '#000',
+            textAlign: 'center',
+            fontSize: 25,
+            marginTop: 1,
+        },
+        equipe:{
+            color: '#000',
+            textAlign: 'center',
+            fontSize: 25,
+            marginTop: 1,
         }
     }
 )
@@ -510,7 +669,6 @@ const cartao = StyleSheet.create(
             borderRadius: 30,
             height: 220,
             marginTop: 10,
-
         },
         envelopefundo:{
             backgroundColor: 'white',
@@ -519,7 +677,6 @@ const cartao = StyleSheet.create(
             borderRadius: 30,
             height: 220,
             marginTop: 10,
-
         },
         pastaFundo:{
             backgroundColor: '#D4E2F3',

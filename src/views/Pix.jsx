@@ -1,15 +1,8 @@
 import React from "react";
 import { View, Text, ImageBackground, StyleSheet, Pressable, Image, Button} from "react-native";
-import Pdf from 'react-native-pdf';
+
 
 export default props =>{
-
-    const pdfPath = 'file:///android_asset/documents/exemplo.pdf'; // Caminho para o arquivo na pasta assets no Android
-    const pdfRef = React.createRef();
-
-    const handleOpenPDF = () => {
-        pdfRef.current && pdfRef.current.show();
-    };
 
     return(
         <View style={{flex:1}}>
@@ -56,19 +49,14 @@ export default props =>{
                     <Text style={style.compartilhar}>
                         Compartilhar
                     </Text>
-                    <Button title="Abrir PDF" onPress={handleOpenPDF} />
-            <Pdf
-                ref={pdfRef}
-                source={{ uri: pdfPath, cache: true }}
-                onLoadComplete={(numberOfPages, filePath) => {
-                    console.log(`Número de páginas: ${numberOfPages}`);
-                }}
-                onError={(error) => {
-                    console.error('Erro ao abrir o PDF:', error);
-                }}
-                style={{ flex: 1, marginTop: 10 }}
-            />
-                </View>
+                    <Pressable
+                        onPress={()=> props.navigation.navigate('Avaliar')}
+                    >
+                    <Text style={style.baixar}>Continuar</Text>
+                    </Pressable>
+                    
+                    </View>
+            
             </ImageBackground>
         </View>
     )
@@ -97,6 +85,7 @@ const topo = StyleSheet.create(
 const texto = StyleSheet.create(
     {
         pagar:{
+            marginTop: 50,
             textAlign: 'center',
             color: 'black',
             fontSize: 20,
@@ -188,7 +177,7 @@ const style = StyleSheet.create(
 
         },
         baixar:{
-            color: 'red',
+            color: '#000',
             marginLeft: 50,
             fontSize: 20,
             marginTop: 10,

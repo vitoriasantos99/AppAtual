@@ -5,16 +5,6 @@ import { CheckBox, } from '@rneui/themed';
 
 export default props =>{
     
-    const [modalVisible1, setModalVisible1] = useState(false);
-
-    const [checked1, setChecked1] = React.useState(false);
-    const toggleCheckbox1 = () => setChecked1(!checked1);
-
-    const [checked2, setChecked2] = React.useState(false);
-    const toggleCheckbox2 = () => setChecked2(!checked2);
-
-    const [opcaoEscolhida, setOpcaoEscolhida] = useState(null);
-
     const [num, setNum] = useState(0); // Quantidade para o item 1
 
     const aumentarNum = () => {
@@ -28,6 +18,24 @@ export default props =>{
         }
     };
 
+    const [modalVisible1, setModalVisible1] = useState(false);
+    const [modalVisible2, setModalVisible2] = useState(false);
+    const [modalVisible3, setModalVisible3] = useState(false);
+    const [modalVisible4, setModalVisible4] = useState(false);
+
+    // const [checked1, setChecked1] = React.useState(false);
+    // const toggleCheckbox1 = () => setChecked1(!checked1);
+
+    // const [checked2, setChecked2] = React.useState(false);
+    // const toggleCheckbox2 = () => setChecked2(!checked2);
+
+    const [opcaoEscolhida1, setOpcaoEscolhida1] = useState(null);
+    const [opcaoEscolhida2, setOpcaoEscolhida2] = useState(null);
+    const [opcaoEscolhida3, setOpcaoEscolhida3] = useState(null);
+    const [opcaoEscolhida4, setOpcaoEscolhida4] = useState(null);
+
+   
+
     //MODAL 1 - MODELO
   const abrirModal1 = () =>{
     setModalVisible1(true);
@@ -37,9 +45,48 @@ export default props =>{
     setModalVisible1(false);
   }
 
-  const handleOpcaoEscolhida = (opcao) => {
-    setOpcaoEscolhida(opcao);
+  const abrirModal2 = () =>{
+    setModalVisible2(true);
+  }
+
+  const fecharModal2 = () =>{
+    setModalVisible2(false);
+  }
+
+  const abrirModal3 = () =>{
+    setModalVisible3(true);
+  }
+
+  const fecharModal3 = () =>{
+    setModalVisible3(false);
+  }
+
+  const abrirModal4 = () =>{
+    setModalVisible4(true);
+  }
+
+  const fecharModal4 = () =>{
+    setModalVisible4(false);
+  }
+
+  const handleOpcaoEscolhida1 = (opcao1) => {
+    setOpcaoEscolhida1(opcao1);
         fecharModal1();
+  }
+
+  const handleOpcaoEscolhida2 = (opcao2) => {
+    setOpcaoEscolhida2(opcao2);
+        fecharModal2();
+  }
+
+  const handleOpcaoEscolhida3 = (opcao3) => {
+    setOpcaoEscolhida3(opcao3);
+        fecharModal3();
+  }
+
+  const handleOpcaoEscolhida4 = (opcao4) => {
+    setOpcaoEscolhida4(opcao4);
+        fecharModal4();
   }
 
 
@@ -65,7 +112,7 @@ export default props =>{
 
                 <Text style={texto.titulo}>Cartão de Visita</Text>
                 <Image
-                    source={require('../image/cartao.png')}
+                    source={require('../image/cartao2.png')}
                     style={image.cartao}
                 ></Image>
 
@@ -74,18 +121,18 @@ export default props =>{
                     <View style={{flexDirection: 'row'}}>
                     <View style={{flexDirection: 'row'}}>
                     
-                    <Text style={texto.modelo}>Modelo</Text>
+                    <Text style={texto.modelo}>Tipo de Material</Text>
                             
                     
                         <Pressable
                             onPress={abrirModal1} 
                             style={style.alinhamentoModelo}
                             >
-                            {opcaoEscolhida && (
+                            {opcaoEscolhida1 && (
                             <View>
-                                <Text style={modal.texto}>{opcaoEscolhida}</Text>
+                                <Text style={modal.texto}>{opcaoEscolhida1}</Text>
                             </View>)}
-                            <View style={image.opcaoModelo}>
+                            <View style={image.opcaoGeral}>
                                 <Image
                                     source={require('../image/opcao.png')}
                                     style={image.modelo}
@@ -102,27 +149,38 @@ export default props =>{
                             onRequestClose={fecharModal1}>
 
                             <View style={modal.modalBackground}>
-                                <View style={modal.caixaGeral}>
+                                <View style={modal.caixaMaterial}>
                                     <View style={modal.checks}>
                                         <CheckBox
-                                        checked={opcaoEscolhida === 'Cartão de Visita simples'}
-                                        onPress={() => handleOpcaoEscolhida('Cartão de Visita simples')}
+                                        checked={opcaoEscolhida1 === 'Papel Couche Brilho 250g'}
+                                        onPress={() => handleOpcaoEscolhida1('Papel Couche Brilho 250g')}
+                                        containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
                                         />
-                                        <Text style={{marginTop: 18,}}>Cartão de Visita simples</Text>
+                                        <Text style={{marginTop: 18,}}>Papel Couche Brilho 250g</Text>
                                     </View>
                                     <View style={modal.checks}>
                                         <CheckBox
-                                            checked={opcaoEscolhida === 'Cartão de Visita Metalizado'}
-                                            onPress={() => handleOpcaoEscolhida('Cartão de Visita Metalizado')}
+                                            checked={opcaoEscolhida1 === 'Papel Couche Brilho 300g'}
+                                            onPress={() => handleOpcaoEscolhida1('Papel Couche Brilho 300g')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
                                         />
-                                        <Text style={{marginTop: 18,}}>Cartão de Visita Metalizado</Text>
+                                        <Text style={{marginTop: 18,}}>Papel Couche Brilho 300g</Text>
                                     </View>
                                     <View style={modal.checks}>
                                         <CheckBox
-                                            checked={opcaoEscolhida === 'Cartão de Visita Premium'}
-                                            onPress={() => handleOpcaoEscolhida('Cartão de Visita Premium')}
+                                            checked={opcaoEscolhida1 === 'Papel Personalizado 300g'}
+                                            onPress={() => handleOpcaoEscolhida1('Papel Personalizado 300g')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
                                         />
-                                        <Text style={{marginTop: 18,}}>Cartão de Visita Premium</Text>
+                                        <Text style={{marginTop: 18,}}>Papel Personalizado 300g</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida1 === 'Kraft 240g'}
+                                            onPress={() => handleOpcaoEscolhida1('Kraft 240g')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>Kraft 240g</Text>
                                     </View>
                                 </View>
                             </View>
@@ -133,58 +191,168 @@ export default props =>{
                         <View style={{flexDirection: 'row'}}>
                             <Text style={texto.formato}>Formato</Text>
                             <Pressable
-                                onPress={() => {Alert.alert(
-                                    '01, 02, 03, 04,')}}
-                                style={style.alinhamentoFormato}>
-                                
+                            onPress={abrirModal2} 
+                            style={style.alinhamentoFormato}
+                            >
+                            {opcaoEscolhida2 && (
+                            <View>
+                                <Text style={modal.texto}>{opcaoEscolhida2}</Text>
+                            </View>)}
+                            <View style={image.opcaoGeral}>
                                 <Image
                                     source={require('../image/opcao.png')}
                                     style={image.opcaoFormato}
                                 />
-                            </Pressable>
+                            </View>
+                        </Pressable>
                         </View>
+                        <Modal
+                            animationType='slide'
+                            transparent={true}
+                            visible={modalVisible2}
+                            onRequestClose={fecharModal2}>
+
+                        <View style={modal.modalBackground}>
+                                <View style={modal.caixaFormato}>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                        checked={opcaoEscolhida2 === '88x48mm'}
+                                        onPress={() => handleOpcaoEscolhida2('88x48mm')}
+                                        containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>88x48mm</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida2 === '50x50mm'}
+                                            onPress={() => handleOpcaoEscolhida2('50x50mm')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>50x50mm</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            </Modal>
+
+
 
                         <View style={{flexDirection: 'row'}}>
-                        <Text style={texto.dimensao}>Dimensões</Text>
-                            <Pressable
-                                onPress={() => {Alert.alert(
-                                    '01, 02, 03, 04,')}}
-                                style={style.alinhamentoDimensao}>
-                                
+                        <Text style={texto.dimensao}>Cores</Text>
+                        <Pressable
+                            onPress={abrirModal3} 
+                            style={style.alinhamentoDimensao}
+                            >
+                            {opcaoEscolhida3 && (
+                            <View>
+                                <Text style={modal.texto}>{opcaoEscolhida3}</Text>
+                            </View>)}
+                            <View style={image.opcaoGeral}>
                                 <Image
                                     source={require('../image/opcao.png')}
                                     style={image.opcaoDimensao}
                                 />
-                            </Pressable>
+                            </View>
+                        </Pressable>
                         </View>
 
+                        <Modal
+                            animationType='slide'
+                            transparent={true}
+                            visible={modalVisible3}
+                            onRequestClose={fecharModal3}>
+
+                        <View style={modal.modalBackground}>
+                                <View style={modal.caixaCor}>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                        checked={opcaoEscolhida3 === '1x0 cores (preto)'}
+                                        onPress={() => handleOpcaoEscolhida3('1x0 cores (preto)')}
+                                        containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>1x0 cores (preto)</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida3 === '1x1 cores (preto frente e verso)'}
+                                            onPress={() => handleOpcaoEscolhida3('1x1 cores (preto frente e verso)')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>1x1 cores (preto frente e verso)</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida3 === '4x0 cores (colorido frente)'}
+                                            onPress={() => handleOpcaoEscolhida3('4x0 cores (colorido frente)')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>4x0 cores (colorido frente)</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida3 === '4x1 cores (colorido frente e 1 cor verso)'}
+                                            onPress={() => handleOpcaoEscolhida3('Kraft 240g')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>Cartão de Visita Premium</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida3 === '4x4 cores (colorido frente e verso)'}
+                                            onPress={() => handleOpcaoEscolhida3('4x4 cores (colorido frente e verso)')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>4x4 cores (colorido frente e verso)</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            </Modal>
+
                         <View style={{flexDirection:'row'}}>
-                            <Text style={texto.material}>Material</Text>
+                            <Text style={texto.material}>Acabamento</Text>
                             <Pressable
-                                onPress={() => {Alert.alert(
-                                    '01, 02, 03, 04,')}}
-                                style={style.alinhamentoMaterial}>
-                                
+                            onPress={abrirModal4} 
+                            style={style.alinhamentoMaterial}
+                            >
+                            {opcaoEscolhida4 && (
+                            <View>
+                                <Text style={modal.texto}>{opcaoEscolhida4}</Text>
+                            </View>)}
+                            <View style={image.opcaoGeral}>
                                 <Image
                                     source={require('../image/opcao.png')}
                                     style={image.opcaoMaterial}
                                 />
-                            </Pressable>
+                            </View>
+                        </Pressable>
                         </View>
 
-                        {/* <View style={{flexDirection:'row'}}>
-                            <Text style={texto.quanti}>Quantidade</Text>
-                            <Pressable
-                                onPress={() => {Alert.alert(
-                                    '01, 02, 03, 04,')}}
-                                style={style.alinhamentoQuanti}>
-                                
-                                <Image
-                                    source={require('../image/opcao.png')}
-                                    style={image.opcaoQuanti}
-                                />
-                            </Pressable>
-                        </View> */}
+                        <Modal
+                            animationType='slide'
+                            transparent={true}
+                            visible={modalVisible4}
+                            onRequestClose={fecharModal4}>
+
+                        <View style={modal.modalBackground}>
+                                <View style={modal.caixaAcabamento}>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                        checked={opcaoEscolhida4 === 'Refilado'}
+                                        onPress={() => handleOpcaoEscolhida4('Refilado')}
+                                        containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>Refilado</Text>
+                                    </View>
+                                    <View style={modal.checks}>
+                                        <CheckBox
+                                            checked={opcaoEscolhida4 === 'Cantos arredondados'}
+                                            onPress={() => handleOpcaoEscolhida4('Cantos arredondados')}
+                                            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
+                                        />
+                                        <Text style={{marginTop: 18,}}>Cantos arredondados</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            </Modal>
 
                 </View>
 
@@ -239,7 +407,7 @@ export default props =>{
 
                     <Pressable 
                         style={botao.calcular}
-                        onPress={() => {Alert.alert('5 dias úteus após a produção')}}       
+                        onPress={() => {Alert.alert('5 dias úteis após a produção')}}       
                     >
                         <Text style={texto.calcular}>Calcular</Text>
                     </Pressable>
@@ -310,9 +478,9 @@ const style = StyleSheet.create(
             borderWidth: 1.2,
             color: "#000",
             height: 35,
-            width: 300,
-            marginTop:15,
-            marginLeft: 43,
+            width: 280,
+            marginTop: 15,
+            marginLeft: 20,
         },
         alinhamentoFormato:{
             flexDirection:"row",
@@ -323,9 +491,9 @@ const style = StyleSheet.create(
             borderWidth: 1.2,
             color: "#000",
             height: 35,
-            width: 300,
-            marginTop:15,
-            marginLeft: 38,
+            width: 280,
+            marginTop: 15,
+            marginLeft: 67,
         },
         alinhamentoDimensao:{
             flexDirection:"row",
@@ -336,9 +504,9 @@ const style = StyleSheet.create(
             borderWidth: 1.2,
             color: "#000",
             height: 35,
-            width: 300,
-            marginTop:15,
-            marginLeft: 20,
+            width: 280,
+            marginTop: 15,
+            marginLeft: 82,
         },
         alinhamentoMaterial:{
             flexDirection:"row",
@@ -349,7 +517,7 @@ const style = StyleSheet.create(
             borderWidth: 1.2,
             color: "#000",
             height: 35,
-            width: 300,
+            width: 280,
             marginTop: 15,
             marginLeft: 39,
         },
@@ -526,21 +694,25 @@ const image = StyleSheet.create(
             height: 120,
             margin: 15,
         },
-        opcaoModelo:{
+
+        opcaoGeral:{
             position: 'absolute',
         },
         modelo:{
             resizeMode: 'contain',
-            marginLeft: 265,
+            marginLeft: 244,
         },
         opcaoFormato:{
-            marginLeft: 265,
+            resizeMode: 'contain',
+            marginLeft: 244,
             },
         opcaoDimensao:{
-            marginLeft: 265,
+            resizeMode: 'contain',
+            marginLeft: 244,
             },
         opcaoMaterial:{
-            marginLeft: 265,
+            resizeMode: 'contain',
+            marginLeft: 244,
             },
         opcaoQuanti:{
             marginLeft: 265,
@@ -583,8 +755,38 @@ const modal = StyleSheet.create(
             marginLeft: 7,
             color: '#000'
         },
-        caixaGeral:{
-            backgroundColor: '#fff',
+        caixaMaterial:{
+            backgroundColor: '#1E74C0',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 10,
+            width: 350, //largura
+            height: 250, //altura
+            borderColor: '#000',
+            borderWidth: 1,
+        },
+        caixaFormato:{
+            backgroundColor: '#1E74C0',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 10,
+            width: 350, //largura
+            height: 250, //altura
+            borderColor: '#000',
+            borderWidth: 1,
+        },
+        caixaCor:{
+            backgroundColor: '#1E74C0',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 10,
+            width: 350, //largura
+            height: 300, //altura
+            borderColor: '#000',
+            borderWidth: 1,
+        },
+        caixaAcabamento:{
+            backgroundColor: '#1E74C0',
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 10,
